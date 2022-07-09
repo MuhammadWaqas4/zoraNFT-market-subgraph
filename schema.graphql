@@ -1,4 +1,4 @@
-type Token @entity{
+type Token @entity {
   id :ID!
   tokenId: BigInt!
   contentURI: String!
@@ -8,7 +8,7 @@ type Token @entity{
   Owner: User!
 }
 
-type User @entity{
+type User @entity {
   id: ID!
   tokens: [Token!]! @derivedFrom(field: "owner")
   creator: [Token!]! @derivedFrom(field: "creator")
