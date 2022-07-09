@@ -7,3 +7,9 @@ type Token @entity{
   creator: User!
   Owner: User!
 }
+
+type User @entity{
+  id: ID!
+  tokens: [Token!]! @derivedFrom(field: "owner")
+  creator: [Token!]! @derivedFrom(field: "creator")
+}
