@@ -21,7 +21,7 @@ export function handleTransfer(event: TransferEvent): void {
     token.metadataURI = tokenContract.tokenMetadataURI(event.params.tokenId);
   }
   token.owner = event.params.to.toHexString();
-  token?.save();
+  token.save();
 
   let user = User.load(event.params.to.toHexString())
   if (!user) {
@@ -31,8 +31,11 @@ export function handleTransfer(event: TransferEvent): void {
 }
 
   
-export function handlTokenURIUpdated(event: TokenURIUpatedEvent): void {
+export function handleTokenURIUpdated(event: TokenURIUpatedEvent): void {
   let token = Token.load(event.params._tokenId.toString());
+  if (!token) {
+    token = new Token(event.params._tokenId.toString());
+  }
   token.contentURI = event.params._uri;
-  token.save()
+  token.save();
 }
