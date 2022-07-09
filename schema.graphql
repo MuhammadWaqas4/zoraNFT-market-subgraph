@@ -1,9 +1,0 @@
-type Token @entity{
-  id :ID!
-  tokenId: BigInt!
-  contentURI: String!
-  metadataURI: String!
-  createdAtTimestamp: BigInt!
-  creator: User!
-  Owner: User!
-}
