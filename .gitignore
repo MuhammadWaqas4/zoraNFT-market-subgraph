@@ -2,3 +2,4 @@ commands.json
 
 node_modules
 .env
+query.js
