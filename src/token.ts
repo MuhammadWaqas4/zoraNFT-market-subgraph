@@ -33,9 +33,7 @@ export function handleTransfer(event: TransferEvent): void {
   
 export function handleTokenURIUpdated(event: TokenURIUpatedEvent): void {
   let token = Token.load(event.params._tokenId.toString());
-  if (!token) {
-    token = new Token(event.params._tokenId.toString());
-  }
+
   token.contentURI = event.params._uri;
   token.save();
 }
