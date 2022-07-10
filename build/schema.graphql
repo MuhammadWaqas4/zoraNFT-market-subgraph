@@ -8,6 +8,7 @@ type Token @entity {
   owner: User!
 }
 
+
 type User @entity {
   id: ID!
   tokens: [Token!]! @derivedFrom(field: "owner")
